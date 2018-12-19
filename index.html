@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OpcEvents WebRc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row">
+        <div class="container">
+            <h1>
+                OpcEvents WebRc
+                <span class="badge badge-success" id="online-badge" style="display: none">Online</span>
+                <span class="badge badge-danger" id="offline-badge">Offline</span>
+            </h1>
+            <div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">OPC Server</span>
+                    </div>
+                    <input id="opcUrl" type="text" class="form-control" placeholder="ws://" aria-label="Username" aria-describedby="basic-addon1"
+                        value="ws://localhost:8887">
+                    <button class="btn btn-primary" onclick="connect(document.getElementById('opcUrl').value)">Connect</button>
+                </div>
+            </div>
+
+            <h3 class="online-only">Live Values</h3>
+            <p  class="online-only">below you see live values send by opc-ua server through websocket proxy</p>
+            <div id="metricOutput"></div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="browser.main.js"></script>
+
+</html>

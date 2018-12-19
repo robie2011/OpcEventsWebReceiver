@@ -1,0 +1,51 @@
+.page-left {
+    background-color: dodgerblue;
+}
+
+.node {
+    background-color: whitesmoke;
+    border: solid 1px gainsboro;
+    margin-bottom: 1em;
+    padding: 2em;
+}
+
+.noflash {
+    color: black;
+}
+
+.flash {
+    -webkit-animation: seconds .3s forwards;
+    animation: seconds .3s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+@-webkit-keyframes seconds {
+    0% {
+        color: yellow;
+    }
+
+    99% {
+        color: black;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+@keyframes seconds {
+    0% {
+        color: yellow;
+    }
+
+    99% {
+        color: black;
+    }
+
+    100% {
+        color: black;
+    }
+}
