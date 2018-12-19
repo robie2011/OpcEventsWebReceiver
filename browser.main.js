@@ -1,15 +1,24 @@
 // https://websocket.org/echo.html
 
+
 /**
  * 
- * @param {string} id 
- * @returns HTMLElement
+ * @param {string} name 
+ * @returns {HTMLElement}
  */
-const elm = id => {
-    return document.getElementById(id)
+const getByClass = name => {
+    let htmlCollection = document.getElementsByClassName(name)
+    let result = []
+    for (let index = 0; index < htmlCollection.length; index++) {
+        const element = htmlCollection[index];
+        result.push(element)
+    }
+
+    return result
 }
 
-const metricOutput = elm("metricOutput");
+const metricOutput = document.getElementById("metricOutput");
+const status = document.getElementById('status')
 console.info("for debug messages set:")
 console.info("      window.enableDebug = true")
 
@@ -21,13 +30,19 @@ const connect = opcUrl => {
     websocket = new WebSocket(opcUrl)
     websocket.onerror = console.error;
     websocket.onopen = () => {
-        elm('online-badge').style.display = 'inline'
-        elm('offline-badge').style.display = 'none'
+        getByClass('online-only').forEach(e => e.classList.add('is-online'))
+        getByClass('offline-only').forEach(e => e.classList.add('is-online'))
+        status.classList.remove('badge-danger')
+        status.classList.add('badge-success')
+        status.innerText = 'open'
     }
 
     websocket.onclose = () => {
-        elm('online-badge').style.display = 'none'
-        elm('offline-badge').style.display = 'inline'
+        getByClass('online-only').forEach(e => e.classList.remove('is-online'))
+        getByClass('offline-only').forEach(e => e.classList.remove('is-online'))
+        status.classList.remove('badge-success')
+        status.classList.add('badge-danger')
+        status.innerText = 'closed'
     }
 
     let lastEvents = []

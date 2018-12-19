@@ -12,30 +12,32 @@
         crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="row">
-        <div class="container">
-            <h1>
-                OpcEvents WebRc
-                <span class="badge badge-success" id="online-badge" style="display: none">Online</span>
-                <span class="badge badge-danger" id="offline-badge">Offline</span>
-            </h1>
-            <div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">OPC Server</span>
-                    </div>
-                    <input id="opcUrl" type="text" class="form-control" placeholder="ws://" aria-label="Username" aria-describedby="basic-addon1"
-                        value="ws://localhost:8887">
-                    <button class="btn btn-primary" onclick="connect(document.getElementById('opcUrl').value)">Connect</button>
-                </div>
-            </div>
+<body class="container">
+    <h1>
+        <i class="fas fa-desktop"></i> OpcEvents WebRc
+        <p style="float: right;">
+            <span class="badge badge-danger" id="status">closed</span>
+        </p>
+    </h1>
+    <p class="text-muted">demo html+js application to receive opc monitoring events sent through webproxy server</p>
+    <p class="text-muted"><i class="fas fa-user"></i> Author Robert Rajakone | <a href="https://github.com/robie2011/OpcEventsWebReceiver"><i class="fab fa-github"></i> Source</a></p>
 
-            <h3 class="online-only">Live Values</h3>
-            <p  class="online-only">below you see live values send by opc-ua server through websocket proxy</p>
-            <div id="metricOutput"></div>
+
+    <div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-server"></i></span>
+            </div>
+            <input id="opcUrl" type="text" class="form-control" placeholder="ws://" aria-label="Username"
+                aria-describedby="basic-addon1" value="ws://localhost:8887">
+            <button class="btn btn-primary" onclick="connect(document.getElementById('opcUrl').value)"><i class="fas fa-plug"></i> connect</button>
         </div>
     </div>
+
+    <h3 class="online-only">Live Values</h3>
+    <p class="online-only">below you see live values send by opc-ua server through websocket proxy</p>
+    <div id="metricOutput"></div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

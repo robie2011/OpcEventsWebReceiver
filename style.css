@@ -1,3 +1,18 @@
+.online-only {
+    visibility: hidden
+}
+.online-only.is-online {
+    visibility: visible
+}
+.offline-only {
+    visibility: visible
+}
+
+.offline-only.is-online {
+    visibility: hidden
+}
+
+
 .page-left {
     background-color: dodgerblue;
 }
